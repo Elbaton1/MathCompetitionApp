@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+<main class="main-content leaderboards_container">
+    <h1>Leaderboards</h1>
+    
+    <% if (leaderboards.length === 0) { %>
+        <p>No leaderboard entries yet. Be the first to start a streak!</p>
+    <% } else { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Streak</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% leaderboards.forEach((leader, index) => { %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= leader.streak %></td>
+                        <td><%= leader.date %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+    
+    <div class="navigation__container">
+        <a href="/" class="btn">Return to Home</a>
+    </div>
+</main>
+</body>
+</html>

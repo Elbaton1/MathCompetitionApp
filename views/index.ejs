@@ -1,15 +1,28 @@
-<!-- The header ejs template is included to ensure our CSS and fonts are loaded -->
 <%- include('partials/header') %>
-    <main class="main-content index_container">
-        <h1>Welcome to the Math Competition App</h1>
-        <div class="navigation__container">
-            <a href="/leaderboards">
-                View Leaderboards
-            </a>
-            <a href="/quiz">
-                Start Quiz
-            </a>
-        </div>
-    </main>
-</body>
-</html>
+
+<main class="main-content index_container">
+  <h1>Welcome to the Math Competition App</h1>
+
+  <!-- Display the current streak or the highest recorded streak if no current streak exists -->
+  <p>
+    Your current streak:
+    <strong>
+      <% if (typeof streak !== 'undefined' && streak > 0) { %>
+      <!-- Check if streak is defined and greater than 0 -->
+      <%= streak %>
+      <!-- Display the current streak -->
+      <% } else if (leaderboards.length > 0) { %>
+      <!-- Display highest streak from leaderboards if no ongoing streak -->
+      Highest streak so far: <%= leaderboards[0].streak %> <% } else { %>
+      <!-- If no streak or leaderboards exist, show a default message -->
+      No streak yet! <% } %>
+    </strong>
+  </p>
+
+  <div class="navigation__container">
+    <a href="/leaderboards"> View Leaderboards </a>
+    <a href="/quiz"> Start Quiz </a>
+  </div>
+</main>
+
+<%- include('partials/footer') %>
