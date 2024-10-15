@@ -3,19 +3,12 @@
 <main class="main-content index_container">
   <h1>Welcome to the Math Competition App</h1>
 
-  <!-- Display the current streak or the highest recorded streak if no current streak exists -->
   <p>
     Your current streak:
     <strong>
-      <% if (typeof streak !== 'undefined' && streak > 0) { %>
-      <!-- Check if streak is defined and greater than 0 -->
-      <%= streak %>
-      <!-- Display the current streak -->
-      <% } else if (leaderboards.length > 0) { %>
-      <!-- Display highest streak from leaderboards if no ongoing streak -->
-      Highest streak so far: <%= leaderboards[0].streak %> <% } else { %>
-      <!-- If no streak or leaderboards exist, show a default message -->
-      No streak yet! <% } %>
+      <% if (typeof streak !== 'undefined' && streak > 0) { %> <%= streak %> <%
+      } else if (leaderboards.length > 0) { %> Highest streak so far: <%=
+      leaderboards[0].streak %> <% } else { %> No streak yet! <% } %>
     </strong>
   </p>
 
